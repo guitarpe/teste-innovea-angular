@@ -1,11 +1,12 @@
 import { ErrorDialogComponent } from './../../shared/components/error-dialog/error-dialog.component';
+import { InfoDialogComponent } from './../../shared/components/info-dialog/info-dialog.component';
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Artigo } from './../model/artigo';
 import { ArtigosService } from './../services/artigos.service';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-artigos',
@@ -15,7 +16,8 @@ import { MatDialog } from '@angular/material/dialog';
 export class ArtigosComponent implements OnInit{
 
   artigos$: Observable<Artigo[]>;
-  displayedColumns = ['source', 'urlToImage', 'author', 'title'];
+  displayedColumns = ['source', 'urlToImage', 'author', 'title', 'publishedAt', 'author', 'url'];
+  dtOptions: DataTables.Settings = {};
 
   constructor(
     private arqtigosServices: ArtigosService,
@@ -36,6 +38,21 @@ export class ArtigosComponent implements OnInit{
     });
   }
 
+  onInformation(content: string, description: string){
+    this.dialog.open(InfoDialogComponent, {
+      data:{
+        content: content,
+        description: description
+      }
+    });
+  }
+
   ngOnInit(): void {
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      lengthMenu : [5, 10, 25],
+      processing: true
+    };
   }
 }

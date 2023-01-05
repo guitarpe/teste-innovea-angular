@@ -1,5 +1,7 @@
 table {
   width: 100%;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 table img{
@@ -15,4 +17,8 @@ table img{
   align-items: center;
   justify-content: center;
   padding: 5%;
+}
+
+div.dataTables_length, div.dataTables_filter{
+  padding: 10px;
 }

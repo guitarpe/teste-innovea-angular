@@ -5,7 +5,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-
+import { DataTablesModule } from 'angular-datatables';
 
 @NgModule({
   exports: [
@@ -14,7 +14,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     MatToolbarModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    DataTablesModule
   ]
 })
 export class AppMaterialModule { }
