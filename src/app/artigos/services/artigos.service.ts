@@ -9,8 +9,8 @@ import { Artigo } from './../model/artigo';
 })
 export class ArtigosService {
 
-  //private readonly API = 'http://localhost:8089/api/articles/list';
-  private readonly API = '/assets/artigos.json';
+  private readonly API = 'http://localhost:8089/api/articles/list';
+  //private readonly API = '/assets/artigos.json';
 
   constructor(private httpClient: HttpClient) { }
 
